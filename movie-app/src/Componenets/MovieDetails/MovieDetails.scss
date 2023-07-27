@@ -1,0 +1,20 @@
+.horizontal-scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    /* Add any other styling you want for the container */
+  }
+  
+  .horizontal-scroll-content {
+    display: inline-block;
+    /* Add any other styling you want for the content */
+  }
+
+  .badge {
+    width: 150px;
+    flex-direction: column;
+    margin-right: 15px;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }

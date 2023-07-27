@@ -1,0 +1,14 @@
+.movie-card {
+    margin-bottom: 15px;
+    transition: all .2s ease-in-out;
+    z-index: 2;
+}
+
+.movie-card-not-guessed:hover {
+    transform: scale(1.7);
+    margin: 50px;
+}
+
+.film-gassed {
+    filter: blur(4px);
+}
