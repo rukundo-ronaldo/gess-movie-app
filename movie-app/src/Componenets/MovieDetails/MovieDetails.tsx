@@ -7,7 +7,6 @@ import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import api from "../../api/movies";
 
 import "./MovieDetails.scss";
-import { Movie } from "../MoviesContainer/MoviesContainer";
 import { useParams } from "react-router";
 import CardContent from "@mui/material/CardContent";
 import {
@@ -20,6 +19,7 @@ import {
 } from "@mui/material";
 import { CastsContainer } from "./CastsContainer";
 import { useNavigate } from "react-router-dom";
+import { Movie } from "../MoviesContainer/types";
 
 interface MovieDetails {
   adult: boolean;
@@ -106,9 +106,6 @@ export const MovieDetails = () => {
           `movie/${id}/casts?api_key=${"87f1ce98eae1bc6311a2320e306ba147"}`
         );
 
-        console.log({ casts });
-
-        console.log(data);
         setMovieDetails(data);
         setMovieCasts(casts);
       } catch (error) {
@@ -120,7 +117,7 @@ export const MovieDetails = () => {
   return (
     <>
       <Button onClick={goHome} variant="outlined">
-        Devinner les autre films
+        Devinner les autre film
       </Button>
       {moviesDetails && (
         <div>
@@ -145,8 +142,8 @@ export const MovieDetails = () => {
                   <FlexBox>
                     {moviesDetails.genres.map((genre) => (
                       <Chip
-                        style={{ marginLeft: "5px" }}
                         key={genre.id}
+                        style={{ marginLeft: "5px" }}
                         label={genre.name}
                         color="primary"
                       />

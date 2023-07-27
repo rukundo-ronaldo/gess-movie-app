@@ -72,7 +72,6 @@ export const MoviesContainer = ({
             let showMovie = Boolean(
                 gussedMovies.includes(movie.title.toLowerCase())
               )
-              console.log(movie.title)
             return (
               <div key={movie.id} onClick={() => setMovie({ movie: movie })}>
                 <Link to={showMovie ? `movie/${movie.id}` : "/"} state={movie}>

@@ -48,19 +48,19 @@ export const CastsContainer = ({casts}: CastsContainerProps) => {
 
     setScrollPosition(clampedScroll);
 };
-console.log(casts)
   return (
     <div
       className="horizontal-scroll-container"
       onWheel={handleWheel}
     >
         {
-            casts.map(cast => {
+            casts.map((cast, index) => {
                 return <div
+                key={cast.id + index}
                 className="horizontal-scroll-content"
                 style={{ transform: `translateX(-${scrollPosition}px)` }}
               >
-                <div className='badge'>
+                <div className='badge' >
                     <Avatar
                       alt="Remy Sharp"
                       src={`https://image.tmdb.org/t/p/w92${cast.profile_path}`}
