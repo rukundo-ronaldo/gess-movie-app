@@ -5,9 +5,8 @@
 ##### for the rest i lleave it to your imagination
 
 
-Some basic Git commands are:
+commands to start the app:
 ```
-git status
-git add
-git commit
+npm install
+npm run dev
 ```
