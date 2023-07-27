@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import api from "../../api/movies";
 import { Button, TextField } from "@mui/material";
@@ -6,22 +6,25 @@ import { FlexBox } from "../FlexBox/FlexBox";
 import { MovieCard } from "../MovieCard/MovieCard";
 import { Link } from "react-router-dom";
 import { Movie } from "./types";
+import { GuessedMovies } from "../../App";
 
 export const MoviesContainer = ({
   setMovie,
+  setMovieGuessed
 }: {
   setMovie: (value: { movie: Movie | undefined }) => void;
+  setMovieGuessed: (value: React.SetStateAction<string[]>) => void
 }) => {
   const [Movies, setMovies] = useState<Movie[]>();
-  const [gussedMovies, setGussedMovies] = useState<string[]>([]);
   const [userInput, setUserInput] = useState<string>("");
+  const gussedMovies = useContext(GuessedMovies) as string[]
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
   };
 
   const OnSbumit = useCallback(() => {
-    setGussedMovies((prev) => [...prev, userInput.toLowerCase()]);
+    setMovieGuessed((prev) => [...prev, userInput.toLowerCase()]);
     setUserInput("");
   }, [gussedMovies, userInput]);
 
@@ -84,6 +87,7 @@ export const MoviesContainer = ({
             );
           })}
       </FlexBox>
+      <Button onClick={() => setMovieGuessed([])} variant="contained">Recommencer</Button>
     </div>
   );
 };
