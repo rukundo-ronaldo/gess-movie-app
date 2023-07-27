@@ -11,4 +11,4 @@ cd movie-app
 npm install
 npm run dev
 ```
-##### to your browser and access the app on http://localhost:5173/
+##### on your browser and access the app on http://localhost:5173/
