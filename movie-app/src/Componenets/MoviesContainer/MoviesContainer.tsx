@@ -10,14 +10,14 @@ import { GuessedMovies } from "../../App";
 
 export const MoviesContainer = ({
   setMovie,
-  setMovieGuessed
+  setMovieGuessed,
 }: {
   setMovie: (value: { movie: Movie | undefined }) => void;
-  setMovieGuessed: (value: React.SetStateAction<string[]>) => void
+  setMovieGuessed: (value: React.SetStateAction<string[]>) => void;
 }) => {
   const [Movies, setMovies] = useState<Movie[]>();
   const [userInput, setUserInput] = useState<string>("");
-  const gussedMovies = useContext(GuessedMovies) as string[]
+  const gussedMovies = useContext(GuessedMovies) as string[];
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
@@ -73,21 +73,20 @@ export const MoviesContainer = ({
         {Movies &&
           Movies.map((movie: Movie) => {
             let showMovie = Boolean(
-                gussedMovies.includes(movie.title.toLowerCase())
-              )
+              gussedMovies.includes(movie.title.toLowerCase())
+            );
             return (
               <div key={movie.id} onClick={() => setMovie({ movie: movie })}>
                 <Link to={showMovie ? `movie/${movie.id}` : "/"} state={movie}>
-                  <MovieCard
-                    movie={movie}
-                    show={showMovie}
-                  />
+                  <MovieCard movie={movie} show={showMovie} />
                 </Link>
               </div>
             );
           })}
       </FlexBox>
-      <Button onClick={() => setMovieGuessed([])} variant="contained">Recommencer</Button>
+      <Button onClick={() => setMovieGuessed([])} variant="contained">
+        Recommencer
+      </Button>
     </div>
   );
 };
