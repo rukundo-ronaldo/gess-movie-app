@@ -7,6 +7,7 @@
 
 commands to start the app:
 ```
+cd movie-app
 npm install
 npm run dev
 ```
